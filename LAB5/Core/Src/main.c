@@ -50,7 +50,6 @@ uint8_t ledfreq = 10;
 uint8_t startup = 0;
 uint16_t led_buf[2];
 uint8_t str[110];
-uint8_t str2[110];
 uint8_t Ispress = 1;
 uint8_t LEDIson = 1;
 uint8_t ButtonPress = 0;
