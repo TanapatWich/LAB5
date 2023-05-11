@@ -260,7 +260,7 @@ void stkuy(){
 			}
 			if(Ispress == 0 && key[0] == '0'){
 				Ispress = 1;
-				HAL_UART_Transmit_IT(&huart2,"\n\rMenu\r\nPress a To Speed Up\r\nPress s To Speed Downr\nPress d To Turn On/Off LED\r\nPress x To Back To Menu\r\n", 105);
+				HAL_UART_Transmit_IT(&huart2,"\n\rMenu\r\nPress a To Speed Up\r\nPress s To Speed Down\nPress d To Turn On/Off LED\r\nPress x To Back To Menu\r\n", 104);
 				state = 1;
 			}
 			else if(Ispress == 0 && key[0] == '1'){
@@ -285,8 +285,8 @@ void stkuy(){
 				Ispress = 1;
 				LEDspd = (500*LEDspd)/(500+LEDspd);
 				ledfreq = ceil(500/LEDspd);
-				sprintf(str,"\na : Speed Up +1Hz\r\ns : Speed Down -1Hz\r\nd : On/Off\r\nx : Back\r\nLED Frequency : %d", ledfreq);
-				HAL_UART_Transmit_IT(&huart2, str, 81);
+				sprintf(str,"\r\nPress a To Speed Up \r\nPress s To Speed Down \r\nPress d To On/Off\r\nPress x To Back\r\nLED Frequency : %d", ledfreq);
+				HAL_UART_Transmit_IT(&huart2, str, 102);
 
 			}
 			//speed down
@@ -294,8 +294,8 @@ void stkuy(){
 				Ispress = 1;
 				LEDspd = (500*LEDspd)/(500-LEDspd);
 				ledfreq = ceil(500/LEDspd);
-				sprintf(str,"\r\na : Speed Up +1Hz\r\ns : Speed Down -1Hz\r\nd : On/Off\r\nx : Back\r\nLED Frequency : %d", ledfreq);
-				HAL_UART_Transmit_IT(&huart2,str, 82);
+				sprintf(str,"\r\nPress a To Speed Up \r\nPress s To Speed Down \r\nPress d To On/Off\r\nPress x To Back\r\nLED Frequency : %d", ledfreq);
+				HAL_UART_Transmit_IT(&huart2,str, 102);
 			}
 			//On/Off
 			else if(Ispress == 0 && key[0] == 'd'){
@@ -303,11 +303,11 @@ void stkuy(){
 
 				if(LEDIson == 1){
 					LEDIson = 0;
-					HAL_UART_Transmit_IT(&huart2,"\n\rMenu\r\nPress a To Speed Up\r\nPress s To Speed Downr\nPress d To Turn On/Off LED\r\nPress x To Back To Menu\r\nLED Turned Off\r", 120);
+					HAL_UART_Transmit_IT(&huart2,"\n\rMenu\r\nPress a To Speed Up\r\nPress s To Speed Down\nPress d To Turn On/Off LED\r\nPress x To Back To Menu\r\nLED Turned Off\r", 119);
 				}
 				else if(LEDIson == 0){
 					LEDIson = 1;
-					HAL_UART_Transmit_IT(&huart2,"\n\rMenu\r\nPress a To Speed Up\r\nPress s To Speed Downr\nPress d To Turn On/Off LED\r\nPress x To Back To Menu\r\nLED Turned On\r", 119);
+					HAL_UART_Transmit_IT(&huart2,"\n\rMenu\r\nPress a To Speed Up\r\nPress s To Speed Down\nPress d To Turn On/Off LED\r\nPress x To Back To Menu\r\nLED Turned On\r", 118);
 				}
 			}
 			else if(Ispress == 0 && key[0] != 'x' && key[0] != 'a' && key[0] != 's' && key[0] != 'd'){
