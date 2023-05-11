@@ -285,8 +285,8 @@ void stkuy(){
 				Ispress = 1;
 				LEDspd = (500*LEDspd)/(500+LEDspd);
 				ledfreq = ceil(500/LEDspd);
-				sprintf(str,"\n\rAvailable Options\r\na : Speed Up +1Hz\r\ns : Speed Down -1Hz\r\nd : On/Off\r\nx : Back\r\nLED Frequency : %d", ledfreq);
-				HAL_UART_Transmit_IT(&huart2, str, 101);
+				sprintf(str,"\na : Speed Up +1Hz\r\ns : Speed Down -1Hz\r\nd : On/Off\r\nx : Back\r\nLED Frequency : %d", ledfreq);
+				HAL_UART_Transmit_IT(&huart2, str, 81);
 
 			}
 			//speed down
@@ -294,8 +294,8 @@ void stkuy(){
 				Ispress = 1;
 				LEDspd = (500*LEDspd)/(500-LEDspd);
 				ledfreq = ceil(500/LEDspd);
-				sprintf(str,"\n\rAvailable Options\r\na : Speed Up +1Hz\r\ns : Speed Down -1Hz\r\nd : On/Off\r\nx : Back\r\nLED Frequency : %d", ledfreq);
-				HAL_UART_Transmit_IT(&huart2,str, 101);
+				sprintf(str,"\r\na : Speed Up +1Hz\r\ns : Speed Down -1Hz\r\nd : On/Off\r\nx : Back\r\nLED Frequency : %d", ledfreq);
+				HAL_UART_Transmit_IT(&huart2,str, 82);
 			}
 			//On/Off
 			else if(Ispress == 0 && key[0] == 'd'){
